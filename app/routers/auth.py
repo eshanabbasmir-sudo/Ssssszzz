@@ -38,6 +38,12 @@ def _cfg(request: Request) -> Config:
 
 
 def _origin_ok(request: Request) -> bool:
+    cfg = getattr(request.app.state, "cfg", None)
+    if cfg is not None and getattr(cfg, "allow_framing", False):
+        # Hosted preview mode: the panel is embedded and proxied, so the
+        # browser Origin legitimately differs from the internal Host header.
+        # CSRF tokens and the SameSite session cookie still apply.
+        return True
     origin = request.headers.get("origin")
     if not origin:
         return True
