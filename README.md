@@ -235,7 +235,8 @@ Written by the installer, editable by hand followed by `bash panel.sh restart`:
 `PRIME_DATA_DIR`, `PRIME_HOST`, `PRIME_PORT`, `PRIME_DEBUG` and `PRIME_ALLOW_FRAMING` override at
 runtime. By default the panel sends `X-Frame-Options: SAMEORIGIN` and
 `Content-Security-Policy: frame-ancestors 'self'`; set `allow_framing`/`PRIME_ALLOW_FRAMING=1` only when
-the panel is meant to live inside someone else's preview frame.
+the panel is meant to live inside someone else's preview frame. In that mode the terminal WebSocket also
+accepts proxied origins (it still requires a valid session cookie); leave it off on real deployments.
 
 ---
 
