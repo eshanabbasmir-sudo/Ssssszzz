@@ -251,6 +251,12 @@ async def require_csrf(request: Request) -> None:
 # WebSocket origin validation
 # --------------------------------------------------------------------------
 def websocket_origin_ok(websocket: WebSocket) -> bool:
+    cfg = getattr(websocket.app.state, "cfg", None)
+    if cfg is not None and getattr(cfg, "allow_framing", False):
+        # Hosted preview mode: the panel is intentionally embedded in a
+        # third-party frame and reached through a proxy that may rewrite the
+        # Host header. Session-cookie authentication still applies.
+        return True
     origin = websocket.headers.get("origin")
     if not origin:
         # Non-browser clients are allowed through: they still need a valid
