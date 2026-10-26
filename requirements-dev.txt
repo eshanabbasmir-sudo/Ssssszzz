@@ -1,0 +1,4 @@
+-r requirements.txt
+# Only needed to run the WebSocket end-to-end tests (already pulled in by
+# uvicorn[standard], listed here for clarity).
+websockets>=12

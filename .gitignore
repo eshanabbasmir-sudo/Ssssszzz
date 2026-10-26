@@ -1,0 +1,23 @@
+# Runtime state (created by the installer)
+data/
+*.db
+*.db-wal
+*.db-shm
+logs/
+venv/
+.venv/
+panel.pid
+requirements.sha256
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+
+# OS / editor
+.DS_Store
+*.swp
+.idea/
+.vscode/
