@@ -1,0 +1,14 @@
+{
+  "name": "PRIME TERMINAL",
+  "short_name": "PRIME",
+  "description": "Self-hosted Linux control panel: real terminal, files, monitoring and server management.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#07080b",
+  "theme_color": "#07080b",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
